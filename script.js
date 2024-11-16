@@ -24,3 +24,9 @@ function pressSpeak()
 }
 
 buttonMakker.addEventListener("click",pressSpeak);
+
+function backgroundColor()
+{
+    document.body.style.background = "color";
+}
+
