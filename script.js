@@ -10,6 +10,11 @@ let textBox = document.createElement("input");
 
 textBox.type = "text";
 
+textBox.placeholder = "Text to be synthesized";
+
+
+
+
 
 document.querySelector("p").appendChild(buttonMakker);
 
