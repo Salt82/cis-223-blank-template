@@ -7,7 +7,7 @@ buttonMakker.innerText="Synthesize";
 
 document.querySelector("p").appendChild(buttonMakker);
 
-document.querySelector("p").style.textAlign("center");
+document.querySelector("p").style.textAlign; center;
 
 function pressSpeak()
 {
