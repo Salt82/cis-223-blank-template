@@ -3,8 +3,12 @@
 
 let buttonMakker = document.createElement("BUTTON");
 
-buttonMakker.innerText="Synthesize";
 
+
+
+
+
+buttonMakker.innerText="Synthesize";
 
 let textBox = document.createElement("input");
 
@@ -38,6 +42,10 @@ document.querySelector("p").style.position = "relative";
 document.querySelector("p").style.top = "50vh";
 
 
+
+
+
+
 function pressSpeak()
 {
     let inputText = document.getElementById("textBox").value;
@@ -48,6 +56,13 @@ function pressSpeak()
 }
 
 buttonMakker.addEventListener("click",pressSpeak);
+
+
+
+
+
+
+
 
 function backgroundColor()
 {
