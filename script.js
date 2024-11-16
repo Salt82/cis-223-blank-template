@@ -12,3 +12,5 @@ function pressSpeak()
 
     speechSynthesis.speak(utterThis);
 }
+
+buttonMakker.addEventListener("click",pressSpeak);
