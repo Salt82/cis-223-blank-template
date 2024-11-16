@@ -10,7 +10,13 @@ let buttonMakker = document.createElement("BUTTON");
 
 buttonMakker.innerText="Synthesize";
 
-let textBox = document.createElement("input");
+let textBox = document.createElement("textarea");
+
+textBox.style.minWidth = "50vw";
+
+textBox.style.minHeight = "10vh"
+
+textBox.style.resize = "horizontal";
 
 textBox.type = "text";
 
