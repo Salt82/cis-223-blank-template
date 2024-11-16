@@ -14,6 +14,8 @@ let textBox = document.createElement("input");
 
 textBox.type = "text";
 
+textBox.id = "textBox";
+
 textBox.placeholder = "Text to be synthesized";
 
 document.querySelector("p").appendChild(textBox);
