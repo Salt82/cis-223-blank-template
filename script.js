@@ -27,6 +27,7 @@ buttonMakker.addEventListener("click",pressSpeak);
 
 function backgroundColor()
 {
-    document.body.style.background = "color";
+    document.body.style.background = "beige";
 }
 
+window.addEventListener("load",backgroundColor);
