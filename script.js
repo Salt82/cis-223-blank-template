@@ -8,7 +8,7 @@ buttonMakker.innerText="Synthesize";
 
 let textBox = document.createElement("input");
 
-
+textBox.type = "text";
 
 
 document.querySelector("p").appendChild(buttonMakker);
