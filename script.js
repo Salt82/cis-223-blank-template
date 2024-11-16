@@ -2,7 +2,7 @@ let buttonMakker = document.createElement("BUTTON");
 
 buttonMakker.innerText="Synthesize";
 
-document.body.appendChild(buttonMakker);
+document.querySelector("p").appendChild(buttonMakker);
 
 function pressSpeak()
 {
