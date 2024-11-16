@@ -5,6 +5,12 @@ let buttonMakker = document.createElement("BUTTON");
 
 buttonMakker.innerText="Synthesize";
 
+
+let textBox = document.createElement("input");
+
+
+
+
 document.querySelector("p").appendChild(buttonMakker);
 
 document.querySelector("p").style.textAlign = "center";
