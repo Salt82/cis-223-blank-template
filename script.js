@@ -16,6 +16,10 @@ textBox.style.minWidth = "50vw";
 
 textBox.style.minHeight = "10vh"
 
+textBox.style.borderRadius = "20px";
+
+textBox.style.padding = "10px";
+
 textBox.style.resize = "horizontal";
 
 textBox.type = "text";
