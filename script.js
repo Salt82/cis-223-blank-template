@@ -74,7 +74,10 @@ buttonMakker.addEventListener("click",pressSpeak);
 
 function backgroundColor()
 {
-    document.body.style.background = "beige";
+    document.body.style.backgroundColor = "black"
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundImage = "url('basicwaveform.jpg')";
 }
 
 window.addEventListener("load",backgroundColor);
