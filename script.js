@@ -61,6 +61,10 @@ function pressSpeak()
     const utterThis = new SpeechSynthesisUtterance(inputText);
 
     speechSynthesis.speak(utterThis);
+
+    document.body.style.backgroundImage = "url('waveformgif.gif')";
+
+    if (utterThis.addEventListener("end",backgroundColor));
 }
 
 buttonMakker.addEventListener("click",pressSpeak);
