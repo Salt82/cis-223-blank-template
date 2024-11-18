@@ -86,6 +86,7 @@ function backgroundColor()
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundImage = "url('basicwaveform.jpg')";
+    document.body.style.backgroundPositionY = "-10vh";
 }
 
 window.addEventListener("load",backgroundColor);
