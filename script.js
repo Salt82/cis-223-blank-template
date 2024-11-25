@@ -58,11 +58,44 @@ document.querySelector("p").style.top = "50vh";
 
 
 
+
+let volumeSlider  = document.createElement("input");
+
+volumeSlider.type = "range"
+
+volumeSlider.min = 0;
+
+volumeSlider.max = 1;
+
+volumeSlider.step = .1;
+
+
+let blankSpace2 = document.createElement("div");
+
+document.querySelector("p").appendChild(blankSpace2);
+
+
+document.querySelector("p").appendChild(volumeSlider);
+
+
+
+
+
+
+
+
+
+
+
+
+
 function pressSpeak()
 {
     let inputText = document.getElementById("textBox").value;
 
     const utterThis = new SpeechSynthesisUtterance(inputText);
+
+    utterThis.volume=volumeSlider.value;
 
     speechSynthesis.speak(utterThis);
 
