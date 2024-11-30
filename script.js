@@ -28,19 +28,14 @@ textBox.id = "textBox";
 
 textBox.placeholder = "Text to be synthesized";
 
-document.querySelector("p").appendChild(textBox);
+
 
 
 
 
 let blankSpace = document.createElement("div");
 
-document.querySelector("p").appendChild(blankSpace);
 
-
-
-
-document.querySelector("p").appendChild(buttonMakker);
 
 
 
@@ -72,11 +67,7 @@ volumeSlider.step = .1;
 
 let blankSpace2 = document.createElement("div");
 
-document.querySelector("p").appendChild(blankSpace2);
 
-document.querySelector("p").append("\u{1F508}");
-
-document.querySelector("p").appendChild(volumeSlider);
 
 
 
@@ -100,7 +91,7 @@ function pressSpeak()
 
     speechSynthesis.speak(utterThis);
 
-    document.body.style.backgroundImage = "url('waveformgif.gif')";
+    // document.body.style.backgroundImage = "url('waveformgif.gif')";
 
     if (utterThis.addEventListener("end",backgroundColor));
 }
@@ -116,11 +107,26 @@ buttonMakker.addEventListener("click",pressSpeak);
 
 function backgroundColor()
 {
-    document.body.style.backgroundColor = "black"
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundImage = "url('basicwaveform.jpg')";
-    document.body.style.backgroundPositionY = "-40vh";
+    document.body.style.backgroundColor = "grey"
+    // document.body.style.backgroundRepeat = "no-repeat";
+    // document.body.style.backgroundSize = "cover";
+    // document.body.style.backgroundImage = "url('basicwaveform.jpg')";
+    // document.body.style.backgroundPositionY = "-40vh";
 }
 
 window.addEventListener("load",backgroundColor);
+
+
+
+
+document.querySelector("p").appendChild(textBox);
+
+document.querySelector("p").appendChild(blankSpace);
+
+document.querySelector("p").appendChild(buttonMakker);
+
+document.querySelector("p").appendChild(blankSpace2);
+
+document.querySelector("p").append("\u{1F508}");
+
+document.querySelector("p").appendChild(volumeSlider);
