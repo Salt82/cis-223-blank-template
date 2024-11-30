@@ -74,6 +74,7 @@ let blankSpace2 = document.createElement("div");
 
 document.querySelector("p").appendChild(blankSpace2);
 
+document.querySelector("p").append("\u{1F508}");
 
 document.querySelector("p").appendChild(volumeSlider);
 
@@ -119,7 +120,7 @@ function backgroundColor()
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundImage = "url('basicwaveform.jpg')";
-    document.body.style.backgroundPositionY = "-10vh";
+    document.body.style.backgroundPositionY = "-40vh";
 }
 
 window.addEventListener("load",backgroundColor);
