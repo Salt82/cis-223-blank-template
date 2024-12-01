@@ -90,7 +90,9 @@ function listenToUser() {
         textBox.value = speechResult;
 
         // calls the press speak function
-        pressSpeak()
+        setTimeout(pressSpeak,2000);
+
+        
     };
 
     
