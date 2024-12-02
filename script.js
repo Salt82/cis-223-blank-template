@@ -1,3 +1,13 @@
+/* Oswaldo Loera 
+    In my webproject I was able to use the WebSpeechApi Tool, I learned how to change its voice by giving the 
+    voices array a different subscript, I also learned how to create speech and recognition objects along with
+    How to change their pitch, volume, and voice values. I learned how to use the bind function so that I was
+    able to call functions inside of other functions and constructor.I applied my knowledge from the class like
+    how to create constructors, and classes along with how to create methods and functions, along with 
+    parameters for my constructor method.
+
+
+*/
 
 // creates the button creator class
 class buttonCreator
@@ -48,14 +58,28 @@ class buttonCreator
         // gets an array of voices
         const voices  = synth.getVoices();
 
-        // sets the voice to the voice selected by the slider
-        utterThis.voice = voices[voiceSlider.value];
+        for (let index = 0; index < 3; index++) 
+            {
 
-        // for the utterThis variable it sets the volume to the value of the volume slider
-        utterThis.volume=volumeSlider.value;
 
-        // for the utterThis variable it sets the pitch to the value of the pitch slider 
-        utterThis.pitch=pitchSlider.value;
+                if(index===0)
+                {
+                    // sets the voice to the voice selected by the slider
+                    utterThis.voice = voices[voiceSlider.value];
+                }
+
+                else if(index===1)
+                {
+                    // for the utterThis variable it sets the volume to the value of the volume slider
+                    utterThis.volume=volumeSlider.value;
+                }
+
+                else if(index===2)
+                    // for the utterThis variable it sets the pitch to the value of the pitch slider 
+                    utterThis.pitch=pitchSlider.value;
+            
+            
+            }
 
         // tells the speech object to speak the text in the textbox
         speechSynthesis.speak(utterThis);
@@ -64,18 +88,19 @@ class buttonCreator
     // Creates a recognition object that listens to what the user has to say. Takes what the user says to is and
     // prints it into the text box, it then calls the pressSpeak function which makes it speak.
 
-    // Code Provided By Mozilla Developer Network!
+    
     listenToUser() 
     {
 
+        // Code Provided By Mozilla Developer Network!
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         const recognition = new SpeechRecognition();
         recognition.continuous = false;
         recognition.lang = "en-US";
         recognition.interimResults = false;
         recognition.maxAlternatives = 1;
-
         const diagnostic = document.querySelector(".output");
+        // End of sample code
 
         // starts starts the recognition object, which allows it to listen to what the user is saying
         recognition.start();
