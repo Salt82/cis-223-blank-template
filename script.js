@@ -65,7 +65,7 @@ listenButton.innerText="Want me to Listen?";
 // Creates a recognition object that listens to what the user has to say. Takes what the user says to is and
 // prints it into the text box, it then calls the pressSpeak function which makes it speak.
 
-// Code Provided By Mozilla Developer Netowrk!
+// Code Provided By Mozilla Developer Network!
 function listenToUser() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
@@ -80,7 +80,7 @@ function listenToUser() {
     recognition.start();
 
 
-    // on the even that the recognition object understands the user it then creates the event function 
+    // on the event that the recognition object understands the user it then creates the event function 
     recognition.onresult = (event) => {
 
         // saves the recognized text
