@@ -26,7 +26,7 @@ class buttonCreator
         }
 
         // if its anything but synthesize it will call the litsen to user function
-        else
+        else if(buttonText==="Want me to listen?")
         {
 
             this.button.addEventListener("click", this.listenToUser);
@@ -41,7 +41,16 @@ class buttonCreator
 
         // creates a new utterance object which passes the input text
         const utterThis = new SpeechSynthesisUtterance(inputText);
-        
+
+        // gets the speechSynthesis object from the window and assigns it to synth
+        const synth = window.speechSynthesis;
+
+        // gets an array of voices
+        const voices  = synth.getVoices();
+
+        // sets the voice to the voice selected by the slider
+        utterThis.voice = voices[voiceSlider.value];
+
         // for the utterThis variable it sets the volume to the value of the volume slider
         utterThis.volume=volumeSlider.value;
 
@@ -85,9 +94,6 @@ class buttonCreator
                 // delays the speech by 2 seconds 
                 setTimeout(this.pressSpeak, 2000);
             };
-
-            
-            
     }
 }
 
@@ -191,6 +197,23 @@ const listenerButton  = new buttonCreator('Want me to listen?');
 
 
 
+// creates the pitch variable and saves an input element
+let voiceSlider  = document.createElement("input");
+
+// sets the type to range or a "slider"
+voiceSlider.type = "range"
+
+// sets the minimum slider value as 0
+voiceSlider.min = 0;
+
+// sets the maximum slider value to 2
+voiceSlider.max = 2;
+
+// makes it so it only goes up by 1
+voiceSlider.step = 1;
+
+let blankSpace5 = document.createElement("div");
+
 // creates the background color function
 function backgroundColor()
 {
@@ -236,3 +259,12 @@ document.querySelector("p").append("\u{21F3}");
 
 // appends the pitch slider to "p"
 document.querySelector("p").appendChild(pitchSlider);
+
+// appends another "div" to "p"
+document.querySelector("p").appendChild(blankSpace5);
+
+// adds an icon for the voice slider
+document.querySelector("p").append("\u{1F5E3}");
+
+// appends the voice slider to "p"
+document.querySelector("p").appendChild(voiceSlider);
