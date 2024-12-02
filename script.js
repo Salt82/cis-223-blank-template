@@ -42,9 +42,10 @@ class buttonCreator
         // creates a new utterance object which passes the input text
         const utterThis = new SpeechSynthesisUtterance(inputText);
         
-        // for the utterThis variable it sets the valume to the volume of the current slider value
+        // for the utterThis variable it sets the volume to the value of the volume slider
         utterThis.volume=volumeSlider.value;
 
+        // for the utterThis variable it sets the pitch to the value of the pitch slider 
         utterThis.pitch=pitchSlider.value;
 
         // tells the speech object to speak the text in the textbox
@@ -81,6 +82,7 @@ class buttonCreator
                 // takes the users speech and places it in the text box
                 textBox.value = speechResult;
 
+                // delays the speech by 2 seconds 
                 setTimeout(this.pressSpeak, 2000);
             };
 
@@ -162,7 +164,7 @@ let blankSpace2 = document.createElement("div");
 
 
 
-// creates the volumeslider variable and saves an input element
+// creates the pitch variable and saves an input element
 let pitchSlider  = document.createElement("input");
 
 // sets the type to range or a "slider"
@@ -171,7 +173,7 @@ pitchSlider.type = "range"
 // sets the minimum slider value as 0
 pitchSlider.min = 0;
 
-// sets the maximum slider value to 1
+// sets the maximum slider value to 10
 pitchSlider.max = 10;
 
 // makes it so it only goes up by .1
@@ -199,9 +201,10 @@ function backgroundColor()
 window.addEventListener("load",backgroundColor);
 
 
-
+// changes colors of sliders to white
 document.querySelector("p").style.accentColor = "white";
 
+// sets the color of the up down arrow emoji to white
 document.querySelector("p").style.color = "white"
 
 // finds the p element and appends the text box
@@ -228,8 +231,8 @@ document.querySelector("p").appendChild(volumeSlider);
 // appends another "div" to "p"
 document.querySelector("p").appendChild(blankSpace4);
 
-// appends a speaker emoji to "p" to act as an icon
+// appends a down and up arrow to "p" to act as an icon
 document.querySelector("p").append("\u{21F3}");
 
-// appends the volume slider to "p"
+// appends the pitch slider to "p"
 document.querySelector("p").appendChild(pitchSlider);
