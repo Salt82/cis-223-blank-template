@@ -1,9 +1,89 @@
 
 
+class buttonCreator
+{
+    constructor(buttonText)
+    {
+        this.button = document.createElement("BUTTON");
 
-let buttonMakker = document.createElement("BUTTON");
+        this.button.textContent = buttonText;
 
-buttonMakker.innerText="Synthesize";
+        this.pressSpeak = this.pressSpeak.bind(this);
+
+        this.listenToUser = this.listenToUser.bind(this);
+
+        if(buttonText==="Synthesize")
+        {
+            this.button.addEventListener("click",this.pressSpeak);
+        }
+
+        else
+        {
+
+            this.button.addEventListener("click", this.listenToUser);
+        }
+    }
+
+    pressSpeak()
+    {
+        let inputText = document.getElementById("textBox").value;
+
+        const utterThis = new SpeechSynthesisUtterance(inputText);
+
+        utterThis.volume=volumeSlider.value;
+
+        speechSynthesis.speak(utterThis);
+
+        if (utterThis.addEventListener("end",backgroundColor));
+    }
+
+    // Creates a recognition object that listens to what the user has to say. Takes what the user says to is and
+    // prints it into the text box, it then calls the pressSpeak function which makes it speak.
+
+    // Code Provided By Mozilla Developer Network!
+    listenToUser() 
+    {
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.lang = "en-US";
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        const diagnostic = document.querySelector(".output");
+
+        // starts starts the recognition object, which allows it to listen to what the user is saying
+        recognition.start();
+
+
+        // on the event that the recognition object understands the user it then creates the event function 
+        recognition.onresult = (event) => 
+            {
+
+                // saves the recognized text
+                const speechResult = event.results[0][0].transcript; 
+            
+                // takes the users speech and places it in the text box
+                textBox.value = speechResult;
+
+                setTimeout(this.pressSpeak, 2000);
+            };
+
+            
+            
+    }
+}
+
+
+
+
+
+
+
+
+
+const talkerButton = new buttonCreator('Synthesize');
 
 let textBox = document.createElement("textarea");
 
@@ -57,82 +137,13 @@ volumeSlider.step = .1;
 let blankSpace2 = document.createElement("div");
 
 
-let listenButton = document.createElement("BUTTON");
-
-listenButton.innerText="Want me to Listen?";
-
-
-// Creates a recognition object that listens to what the user has to say. Takes what the user says to is and
-// prints it into the text box, it then calls the pressSpeak function which makes it speak.
-
-// Code Provided By Mozilla Developer Network!
-function listenToUser() {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognition.continuous = false;
-    recognition.lang = "en-US";
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-
-    const diagnostic = document.querySelector(".output");
-
-    // starts starts the recognition object, which allows it to listen to what the user is saying
-    recognition.start();
-
-
-    // on the event that the recognition object understands the user it then creates the event function 
-    recognition.onresult = (event) => {
-
-        // saves the recognized text
-        const speechResult = event.results[0][0].transcript; 
-        
-        // takes the users speech and places it in the text box
-        textBox.value = speechResult;
-
-        // calls the press speak function
-        setTimeout(pressSpeak,2000);
-
-        
-    };
-
-    
-}
-
-// Attach the listener to the button
-listenButton.addEventListener("click", listenToUser);
-
-
-
-
-
-
-
-function pressSpeak()
-{
-    let inputText = document.getElementById("textBox").value;
-
-    const utterThis = new SpeechSynthesisUtterance(inputText);
-
-    utterThis.volume=volumeSlider.value;
-
-    speechSynthesis.speak(utterThis);
-
-    // document.body.style.backgroundImage = "url('waveformgif.gif')";
-
-    if (utterThis.addEventListener("end",backgroundColor));
-}
-
-buttonMakker.addEventListener("click",pressSpeak);
+const listenerButton  = new buttonCreator('Want me to listen?');
 
 
 
 function backgroundColor()
 {
-    document.body.style.backgroundColor = "grey"
-    // document.body.style.backgroundRepeat = "no-repeat";
-    // document.body.style.backgroundSize = "cover";
-    // document.body.style.backgroundImage = "url('basicwaveform.jpg')";
-    // document.body.style.backgroundPositionY = "-40vh";
+    document.body.style.backgroundColor = "black";
 }
 
 window.addEventListener("load",backgroundColor);
@@ -144,9 +155,9 @@ document.querySelector("p").appendChild(textBox);
 
 document.querySelector("p").appendChild(blankSpace);
 
-document.querySelector("p").appendChild(buttonMakker);
+document.querySelector("p").appendChild(talkerButton.button);
 
-document.querySelector("p").appendChild(listenButton);
+document.querySelector("p").appendChild(listenerButton.button);
 
 document.querySelector("p").appendChild(blankSpace2);
 
