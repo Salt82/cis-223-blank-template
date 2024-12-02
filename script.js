@@ -240,13 +240,13 @@ voiceSlider.step = 1;
 let blankSpace5 = document.createElement("div");
 
 // creates the background color function
-function backgroundColor()
+function backgroundColor(color)
 {
-    document.body.style.backgroundColor = "black";
+    document.body.style.backgroundColor = color;
 }
 
 // when the site loads it will run the background color function
-window.addEventListener("load",backgroundColor);
+window.addEventListener("load",backgroundColor("black"));
 
 
 // changes colors of sliders to white
