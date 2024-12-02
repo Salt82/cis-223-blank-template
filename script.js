@@ -45,6 +45,8 @@ class buttonCreator
         // for the utterThis variable it sets the valume to the volume of the current slider value
         utterThis.volume=volumeSlider.value;
 
+        utterThis.pitch=pitchSlider.value;
+
         // tells the speech object to speak the text in the textbox
         speechSynthesis.speak(utterThis);
     }
@@ -159,6 +161,28 @@ let blankSpace2 = document.createElement("div");
 
 
 
+
+// creates the volumeslider variable and saves an input element
+let pitchSlider  = document.createElement("input");
+
+// sets the type to range or a "slider"
+pitchSlider.type = "range"
+
+// sets the minimum slider value as 0
+pitchSlider.min = 0;
+
+// sets the maximum slider value to 1
+pitchSlider.max = 10;
+
+// makes it so it only goes up by .1
+pitchSlider.step = .1;
+
+// creates another blank space
+let blankSpace4 = document.createElement("div");
+
+
+
+
 // creates a listener button passes the "want me to listen" text 
 const listenerButton  = new buttonCreator('Want me to listen?');
 
@@ -176,7 +200,9 @@ window.addEventListener("load",backgroundColor);
 
 
 
+document.querySelector("p").style.accentColor = "white";
 
+document.querySelector("p").style.color = "white"
 
 // finds the p element and appends the text box
 document.querySelector("p").appendChild(textBox);
@@ -198,3 +224,12 @@ document.querySelector("p").append("\u{1F508}");
 
 // appends the volume slider to "p"
 document.querySelector("p").appendChild(volumeSlider);
+
+// appends another "div" to "p"
+document.querySelector("p").appendChild(blankSpace4);
+
+// appends a speaker emoji to "p" to act as an icon
+document.querySelector("p").append("\u{21F3}");
+
+// appends the volume slider to "p"
+document.querySelector("p").appendChild(pitchSlider);
